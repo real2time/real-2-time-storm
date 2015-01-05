@@ -22,7 +22,7 @@ ENV STORM_HOME /opt/apache-storm-0.9.3
 
 RUN cd /tmp; git clone https://github.com/real2time/ducksboard.git; cd ducksboard; mvn -l output.log install; cd /tmp; rm -rf ducksboard
 
-RUN cd /opt; git clone https://github.com/real2time/real-2-time-storm.git; cd real-2-time-storm; mvn -l output.log package; mvn -l output.log clean
+RUN cd /opt; git clone https://github.com/real2time/real-2-time-storm.git; cd real-2-time-storm; git checkout alpha-0.0.1; mvn -l output.log package; mvn -l output.log clean
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker-entrypoint.sh /entrypoint.sh
